@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useReducer, useCallback } from "react";
 import NewsReducer from "./newsReducer";
 import NewsContext from "./newsContext";
 import { GET_HEADLINES, SEARCHED_NEWS } from "./types";
@@ -11,7 +11,7 @@ const NewsState = (props) => {
   };
   const [state, dispatch] = useReducer(NewsReducer, initialState);
 
-  const getHeadlines = async () => {
+  const getHeadlines = useCallback(async () => {
     const res = await axios.get(
       "https://newsapi.org/v2/top-headlines?country=us&apiKey=70e5d5c6c7a148edbeeb34cb4bc7a327"
     );
@@ -20,7 +20,7 @@ const NewsState = (props) => {
       type: GET_HEADLINES,
       payload: res.data,
     });
-  };
+  }, [dispatch]);
 
   const searchNews = async (text) => {
     if (text === "") {

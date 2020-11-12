@@ -10,7 +10,7 @@ const NewsItems = () => {
 
   useEffect(() => {
     getHeadlines();
-  }, []);
+  }, [getHeadlines]);
   return (
     <div className="row mt-4">
       {loading && (
