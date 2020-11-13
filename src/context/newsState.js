@@ -13,7 +13,7 @@ const NewsState = (props) => {
 
   const getHeadlines = useCallback(async () => {
     const res = await axios.get(
-      "https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?country=us&apiKey=70e5d5c6c7a148edbeeb34cb4bc7a327"
+      "https://newsapi.org/v2/top-headlines?country=us&apiKey=70e5d5c6c7a148edbeeb34cb4bc7a327"
     );
 
     dispatch({
@@ -27,7 +27,7 @@ const NewsState = (props) => {
       getHeadlines();
     } else {
       const res = await axios.get(
-        `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?q=${text}&apiKey=70e5d5c6c7a148edbeeb34cb4bc7a327`
+        `https://newsapi.org/v2/everything?q=${text}&apiKey=70e5d5c6c7a148edbeeb34cb4bc7a327`
       );
 
       dispatch({
